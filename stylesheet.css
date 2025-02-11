@@ -1,6 +1,6 @@
 /* General Page Styles */
 body {
-    font-family: Arial, sans-serif;                 
+    font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -31,6 +31,12 @@ nav a {
 }
 
 nav a:hover {
+    background: #555;
+}
+
+/* Active Page Styling */
+nav a.active {
+    font-weight: bold;
     background: #555;
 }
 
@@ -102,21 +108,43 @@ body {
     padding-bottom: 60px;
 }
 
-/* Gallery */
+/* Updated Gallery Page Styling */
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
-    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
+    padding: 2rem;
 }
 
-.gallery img {
+.gallery-img {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    padding-top: 1rem;
+}
+
+.gallery-img img {
     width: 100%;
     height: auto;
-    border: 2px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
+    border: 3px solid #333;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.gallery-img img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Make the first image take up a full row */
+.gallery-img img:first-child {
+    grid-column: span 2;
+    width: 100%;
+    height: auto;
     object-fit: cover;
 }
 
@@ -136,7 +164,7 @@ body {
 /* Car Details Section */
 #services {
     text-align: center;
-    background-color:rgb(193, 165, 24); /* Different background */
+    background-color: rgb(193, 165, 24); /* Different background */
     color: rgb(7, 6, 6);
     padding: 2rem 0;
 }
